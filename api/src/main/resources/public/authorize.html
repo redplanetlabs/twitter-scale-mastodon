@@ -1,0 +1,178 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link href="/packs/css/application-6d32d949.css" rel="stylesheet">
+  <title>Red Planet Labs Mastodon</title>
+  <meta name="theme-color" content="#0482d8" data-react-helmet="true">
+  <style id="theme" type="text/css" data-react-helmet="true">:root {
+  --color-primary-50: 242 249 253;
+  --color-primary-100: 230 243 251;
+  --color-primary-200: 192 224 245;
+  --color-primary-300: 79 168 228;
+  --color-primary-400: 54 155 224;
+  --color-primary-500: 4 130 216;
+  --color-primary-600: 4 117 194;
+  --color-primary-700: 3 98 162;
+  --color-primary-800: 1 39 65;
+  --color-primary-900: 1 25 41;
+  --color-success-50: 240 253 244;
+  --color-success-100: 220 252 231;
+  --color-success-200: 187 247 208;
+  --color-success-300: 134 239 172;
+  --color-success-400: 74 222 128;
+  --color-success-500: 34 197 94;
+  --color-success-600: 22 163 74;
+  --color-success-700: 21 128 61;
+  --color-success-800: 22 101 52;
+  --color-success-900: 20 83 45;
+  --color-danger-50: 254 242 242;
+  --color-danger-100: 254 226 226;
+  --color-danger-200: 254 202 202;
+  --color-danger-300: 252 165 165;
+  --color-danger-400: 248 113 113;
+  --color-danger-500: 239 68 68;
+  --color-danger-600: 220 38 38;
+  --color-danger-700: 185 28 28;
+  --color-danger-800: 153 27 27;
+  --color-danger-900: 127 29 29;
+  --color-gray-50: 248 250 250;
+  --color-gray-100: 241 244 246;
+  --color-gray-200: 221 228 232;
+  --color-gray-300: 158 178 191;
+  --color-gray-400: 145 167 181;
+  --color-gray-500: 117 145 163;
+  --color-gray-600: 105 131 147;
+  --color-gray-700: 88 109 122;
+  --color-gray-800: 35 44 49;
+  --color-gray-900: 22 28 31;
+  --color-gradient-start: 4 130 216;
+  --color-accent-50: 243 251 253;
+  --color-accent-100: 231 247 250;
+  --color-accent-200: 195 236 244;
+  --color-accent-300: 88 202 223;
+  --color-accent-400: 64 194 218;
+  --color-accent-500: 16 179 209;
+  --color-accent-600: 14 161 188;
+  --color-accent-700: 12 134 157;
+  --color-accent-800: 5 54 63;
+  --color-accent-900: 3 34 40;
+  --color-greentext: 120 153 34;
+  --color-secondary-50: 243 251 253;
+  --color-secondary-100: 231 247 250;
+  --color-secondary-200: 195 236 244;
+  --color-secondary-300: 88 202 223;
+  --color-secondary-400: 64 194 218;
+  --color-secondary-500: 16 179 209;
+  --color-secondary-600: 14 161 188;
+  --color-secondary-700: 12 134 157;
+  --color-secondary-800: 5 54 63;
+  --color-secondary-900: 3 34 40;
+  --color-accent-blue: 4 117 194;
+  --color-gradient-end: 16 179 209;
+}
+  </style>
+</head>
+<body class="h-full bg-white text-base dark:bg-gray-800 no-reduce-motion" dir="ltr" data-react-helmet="class,dir">
+<div id="soapbox" class="h-full">
+    <div class="h-full">
+        <div class="fixed h-screen w-full bg-gradient-to-tr from-primary-50 via-white to-gradient-end/10 dark:from-primary-900/50 dark:via-primary-900 dark:to-primary-800/50">
+        </div>
+        <main class="relative h-full sm:flex sm:justify-center">
+            <div class="flex h-full w-full flex-col sm:max-w-lg md:max-w-2xl lg:max-w-6xl">
+                <header class="relative mb-auto flex justify-between py-12 px-2"></header>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="w-full pb-10 sm:mx-auto sm:max-w-lg md:max-w-2xl">
+                        <div
+                                class="bg-white dark:bg-primary-900 text-gray-900 dark:text-gray-100 shadow-lg dark:shadow-none overflow-hidden p-4 sm:p-10 sm:rounded-3xl">
+                            <div data-testid="card-body">
+                                <div>
+                                    <div
+                                            class="-mx-4 mb-4 border-b border-solid border-gray-200 pb-4 dark:border-gray-800 sm:-mx-10 sm:pb-10">
+                                        <h1 class="text-center text-2xl font-bold">Sign In</h1>
+                                    </div>
+                                    <div class="flex flex-col space-y-5 mx-auto sm:w-2/3 sm:pt-10 md:w-1/2">
+                                        <form data-testid="form" class="space-y-4" action="/oauth/authorize" accept-charset="UTF-8" method="post">
+                                            <div><label for="field-c2627782-da34-4df9-b835-5d6fc5cdb262"
+                                                        data-testid="form-group-label"
+                                                        class="block text-sm font-medium text-gray-900 dark:text-gray-100">Email
+                                                or username</label>
+                                                <div class="mt-1 dark:text-white">
+                                                    <div class="relative rounded-md mt-1"><input
+                                                            aria-label="Email or username"
+                                                            placeholder="Email or username" name="username"
+                                                            autocorrect="off" autocapitalize="off" required=""
+                                                            id="field-c2627782-da34-4df9-b835-5d6fc5cdb262"
+                                                            type="text"
+                                                            class="text-base placeholder:text-gray-600 dark:placeholder:text-gray-600 text-gray-900 dark:text-gray-100 block w-full sm:text-sm dark:ring-1 dark:ring-gray-800 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 rounded-md bg-white dark:bg-gray-900 border-gray-400 dark:border-gray-800">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div><label for="field-0f060eba-458c-4caf-a660-10a7e1bc1040"
+                                                        data-testid="form-group-label"
+                                                        class="block text-sm font-medium text-gray-900 dark:text-gray-100">Password</label>
+                                                <div class="mt-1 dark:text-white">
+                                                    <div class="relative rounded-md mt-1"><input
+                                                            aria-label="Password" placeholder="Password"
+                                                            name="password" autocomplete="off" autocorrect="off"
+                                                            autocapitalize="off" required=""
+                                                            id="field-0f060eba-458c-4caf-a660-10a7e1bc1040"
+                                                            type="password"
+                                                            class="text-base placeholder:text-gray-600 dark:placeholder:text-gray-600 text-gray-900 dark:text-gray-100 block w-full sm:text-sm dark:ring-1 dark:ring-gray-800 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 rounded-md bg-white dark:bg-gray-900 border-gray-400 dark:border-gray-800 pr-7 rtl:pl-7 rtl:pr-3">
+                                                        <div class="absolute inset-y-0 right-0 flex items-center rtl:left-0 rtl:right-auto"
+                                                             data-state="tooltip-hidden"
+                                                             data-reach-tooltip-trigger=""><button type="button"
+                                                                                                   tabindex="-1"
+                                                                                                   class="h-full px-2 text-gray-700 hover:text-gray-500 focus:ring-2 focus:ring-primary-500 dark:text-gray-600 dark:hover:text-gray-400"><svg
+                                                                class="h-4 w-4"
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                                stroke="currentColor" fill="none"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                data-testid="svg-icon">
+                                                            <path stroke="none" d="M0 0h24v24H0z"
+                                                                  fill="none"></path>
+                                                            <path
+                                                                    d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0">
+                                                            </path>
+                                                            <path
+                                                                    d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7">
+                                                            </path>
+                                                        </svg></button></div>
+                                                    </div>
+                                                    <p data-testid="form-group-hint"
+                                                       class="mt-0.5 text-xs text-gray-700 dark:text-gray-600"><a
+                                                            class="hover:underline" href="/reset-password">Trouble
+                                                        logging in?</a></p>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="client_id" id="client_id" value="%s" autocomplete="off">
+                                            <input type="hidden" name="redirect_uri" id="redirect_uri" value="%s" autocomplete="off">
+                                            <input type="hidden" name="response_type" id="response_type" value="code" autocomplete="off">
+                                            <input type="hidden" name="scope" id="scope" value="%s" autocomplete="off">
+                                            <div class="flex rtl:space-x-reverse justify-end space-x-2">
+                                                <button
+                                                    class="space-x-2 rtl:space-x-reverse inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 appearance-none transition-all bg-primary-500 hover:bg-primary-400 dark:hover:bg-primary-600 border-transparent focus:bg-primary-500 text-gray-100 focus:ring-primary-300 px-4 py-2 text-sm"
+                                                    type="submit" data-testid="button">
+                                                    <span>Sign in and Authorize</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="z-50 transition-all" style="opacity: 0;"></div>
+    <div class="top-10" style="position: fixed; z-index: 9999; inset: 75px 16px 16px; pointer-events: none;"></div>
+</div>
+</body>
+</html>

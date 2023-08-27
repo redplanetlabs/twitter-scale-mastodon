@@ -1,0 +1,5 @@
+custom.serializations:
+  - "com.rpl.mastodon.serialization.MastodonSerialization"
+worker.child.opts: "-Xms12g -Xmx12g -Dmastodon.api.url=https://mastodon.redplanetlabs.com -Dmastodon.api.web.socket.url=wss://mastodon.redplanetlabs.com -Dmastodon.api.domain=mastodon.redplanetlabs.com -Dmastodon.frontend.url=https://mastodon.redplanetlabs.com"
+pstate.validate.subindexed.structure.locations: false
+pstate.maximal.schema.validations: false
