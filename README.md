@@ -39,13 +39,13 @@ Federation is implemented in both the API server and the [Core](backend/src/main
 
 ## Running locally
 
-Running the instance locally is very easy. We've set up the API server to also be able run an in process cluster with all the modules launched. All you have to do is run this from the `api/` folder:
+Running the instance locally is easy. We've set up the API server to also be able run an in process cluster with all the modules launched. All you have to do is run this from the `api/` folder:
 
 ```
 mvn spring-boot:run
 ```
 
-Since this doesn't configuring credentials to connect to S3, you'll see an error about that. That error is ignored and the instance will continue launching.
+Since this doesn't configure credentials to connect to S3, you'll see an error about that. That error is ignored and the instance will continue launching.
 
 If you look at [MastodonApiApplication](api/src/main/java/com/rpl/mastodonapi/MastodonApiApplication.java), you can see how it also adds some data to the modules. These include users "alice", "bob", and "charlie" with passwords "alice", "bob", and "charlie" respectively.
 
