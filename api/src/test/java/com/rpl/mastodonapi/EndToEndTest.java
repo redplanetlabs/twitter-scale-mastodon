@@ -1256,9 +1256,17 @@ public class EndToEndTest {
 
             // charlie gets familiar followers
             {
+
+                TestStreamClient aliceUserStream = new TestStreamClient("ws://localhost:" + localServerPort + "/api/v1/streaming/?stream=user", aliceAuth);
+
                 // charlie follows alice
                 GetRelationship relationship = postFollow(charlieAuth, aliceId);
                 assertTrue(relationship.following);
+
+
+                GetNotification streamNotification = aliceUserStream.waitForNotification();
+                assertEquals("charlie", streamNotification.account.username);
+                aliceUserStream.close();
 
                 // without the auth header, it returns 401
                 webClient.get().uri(uriBuilder -> uriBuilder.path("/api/v1/accounts/familiar_followers")
