@@ -29,8 +29,9 @@ import static com.rpl.mastodonapi.TestHelpers.attainCondition;
 public class IntegrationTest {
     @Test
     public void integrationTest() throws NoSuchAlgorithmException, IOException, NoSuchProviderException {
-        // this test will only run when it is specifically selected like this:
-        // mvn test -Dtest=IntegrationTest
+        // - this is run using an actual Mastodon instance running on Rama as well as an actual Mastodon instance (the Ruby version)
+        // - this tests ActivityPub communication between the instances
+        // - this test will only run when it is specifically selected like this: mvn test -Dtest=IntegrationTest
         if (!"IntegrationTest".equals(System.getProperty("test"))) {
             throw new RuntimeException("Can't run integration test unless it is explicitly specified:\nmvn test -Dtest=IntegrationTest");
         }

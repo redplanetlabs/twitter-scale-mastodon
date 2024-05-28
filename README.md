@@ -45,13 +45,14 @@ Running the instance locally is easy. We've set up the API server to also be abl
 mvn spring-boot:run
 ```
 
-Since this doesn't configure credentials to connect to S3, you'll see an error about that. That error is ignored and the instance will continue launching.
+Since this doesn't configure credentials to connect to S3, you'll see an error about that. That error is ignored and the instance will continue launching. The launch is finished when the Spring logo prints to the console (may take a few minutes).
 
 If you look at [MastodonApiApplication](api/src/main/java/com/rpl/mastodonapi/MastodonApiApplication.java), you can see how it also adds some data to the modules. These include users "alice", "bob", and "charlie" with passwords "alice", "bob", and "charlie" respectively.
 
 To run the frontend, you'll need to run [our fork of Soapbox](https://github.com/redplanetlabs/soapbox). Our fork contains minor tweaks to the official implementation to fix a variety of small issues. From the root of that fork run:
 
 ```
+npx webpack init
 NODE_ENV="development" BACKEND_URL="http://localhost:8080" yarn build
 NODE_ENV="development" BACKEND_URL="http://localhost:8080" yarn dev --port 8000
 ```

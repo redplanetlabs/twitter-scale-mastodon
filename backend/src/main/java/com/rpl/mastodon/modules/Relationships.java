@@ -288,7 +288,7 @@ public class Relationships implements RamaModule {
         // during fanout even if the social graph is extremely unbalanced (e.g. some users having 20M followers while the average
         // is 400). How this works is explained more below.
 
-        // account ID to list of account IDs on which partitioned followers are kept
+        // account ID to list of task IDs on which partitioned followers are kept
         stream.pstate("$$partitionedFollowersControl", PState.mapSchema(Long.class, List.class));
         // account ID -> follower ID -> task
         stream.pstate("$$partitionedFollowerTasks", PState.mapSchema(Long.class, PState.mapSchema(Long.class, Integer.class).subindexed()));
