@@ -414,7 +414,7 @@ public class MastodonApiController {
     }
 
     @DeleteMapping("/api/v1/scheduled_statuses/{id}")
-    public Mono<Void> cancelScheduledStatus(WebSession session, @PathVariable("id") String id) {
+    public Mono<Map<String, Object>> cancelScheduledStatus(WebSession session, @PathVariable("id") String id) {
         long requestAccountId = getMandatoryAccountId(session);
         StatusPointer statusPointer = MastodonHelpers.parseStatusPointer(id);
         if (statusPointer.authorId != requestAccountId) return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED));
@@ -1910,7 +1910,7 @@ public class MastodonApiController {
     }
 
     @DeleteMapping("/api/v2/filters/{id}")
-    public Mono<Void> deleteFilter(WebSession session, @PathVariable("id") Long filterId) {
+    public Mono<Map<String, Object>> deleteFilter(WebSession session, @PathVariable("id") Long filterId) {
         long requestAccountId = getMandatoryAccountId(session);
         return Mono.fromFuture(manager.deleteFilter(requestAccountId, filterId));
     }
@@ -2027,7 +2027,7 @@ public class MastodonApiController {
     }
 
     @DeleteMapping("/api/v2/filters/statuses/{id}")
-    public Mono<Void> deleteFilterStatus(WebSession session, @PathVariable("id") String statusFilterId) {
+    public Mono<Map<String, Object>> deleteFilterStatus(WebSession session, @PathVariable("id") String statusFilterId) {
         long requestAccountId = getMandatoryAccountId(session);
         Long filterId = MastodonHelpers.getFilterIdFromStatusFilterId(statusFilterId);
         StatusPointer statusPointer = MastodonHelpers.getStatusPointerFromStatusFilterId(statusFilterId);

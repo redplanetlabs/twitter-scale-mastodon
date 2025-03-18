@@ -107,6 +107,14 @@ public class TrendsAndHashtagsTest {
 
     private static long DAY_MILLIS = 1000 * 60 * 60 * 24;
 
+    public static List firstElems(List<List> l) {
+      List ret = new ArrayList();
+      for(List e: l) {
+        if(e.size() > 0) ret.add(e.get(0));
+      }
+      return ret;
+    }
+
     @Test
     public void hashtagTrendsTest(TestInfo testInfo) throws Exception {
         List<Class> sers = new ArrayList<>();
@@ -197,17 +205,17 @@ public class TrendsAndHashtagsTest {
             statusDepot.append(new AddStatus(UUID.randomUUID().toString(), new Status(16, normalStatusContent("#hello", StatusVisibility.Public), 7 * DAY_MILLIS)));
             statusDepot.append(new AddStatus(UUID.randomUUID().toString(), new Status(17, normalStatusContent("#hello", StatusVisibility.Public), 7 * DAY_MILLIS)));
 
-            attainCondition(() -> trends.select(Path.all().first()).equals(Arrays.asList("hello", "b", "c")));
-            assertEquals(new ArrayList(), reviewedTrends.select(Path.all().first()));
+            attainCondition(() -> firstElems(trends.selectOne(Path.stay())).equals(Arrays.asList("hello", "b", "c")));
+            assertEquals(new ArrayList(), firstElems(reviewedTrends.select(Path.stay())));
 
             reviewHashtagDepot.append(new ReviewItem("hello", 0));
             reviewHashtagDepot.append(new ReviewItem("c", 0));
 
-            attainCondition(() -> reviewedTrends.select(Path.all().first()).equals(Arrays.asList("hello", "c")));
+            attainCondition(() -> firstElems(reviewedTrends.selectOne(Path.stay())).equals(Arrays.asList("hello", "c")));
 
             reviewHashtagDepot.append(new RemoveReviewItem("hello", 0));
 
-            attainCondition(() -> reviewedTrends.select(Path.all().first()).equals(Arrays.asList("c")));
+            attainCondition(() -> firstElems(reviewedTrends.selectOne(Path.stay())).equals(Arrays.asList("c")));
         }
     }
 
@@ -353,16 +361,16 @@ public class TrendsAndHashtagsTest {
             statusDepot.append(new AddStatus(UUID.randomUUID().toString(), new Status(17, normalStatusContent("http://hello.com", StatusVisibility.Public), 7 * DAY_MILLIS)));
 
             attainCondition(() -> trends.select(Path.all().first()).equals(Arrays.asList("http://hello.com", "http://b.com", "http://c.com")));
-            assertEquals(new ArrayList(), reviewedTrends.select(Path.all().first()));
+            assertEquals(new ArrayList(), firstElems(reviewedTrends.selectOne(Path.stay())));
 
             reviewLinkDepot.append(new ReviewItem("http://hello.com", 0));
             reviewLinkDepot.append(new ReviewItem("http://c.com", 0));
 
-            attainCondition(() -> reviewedTrends.select(Path.all().first()).equals(Arrays.asList("http://hello.com", "http://c.com")));
+            attainCondition(() -> firstElems(reviewedTrends.selectOne(Path.stay())).equals(Arrays.asList("http://hello.com", "http://c.com")));
 
             reviewLinkDepot.append(new RemoveReviewItem("http://hello.com", 0));
 
-            attainCondition(() -> reviewedTrends.select(Path.all().first()).equals(Arrays.asList("http://c.com")));
+            attainCondition(() -> firstElems(reviewedTrends.selectOne(Path.stay())).equals(Arrays.asList("http://c.com")));
         }
     }
 

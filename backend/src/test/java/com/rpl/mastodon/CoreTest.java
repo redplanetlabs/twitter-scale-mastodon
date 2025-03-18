@@ -356,16 +356,8 @@ public class CoreTest {
       StatusResultWithId bobStatusResultWithId = getAccountTimeline.invoke(bobId, bobId, 0L, limit, true).results.get(0);
       assertNotNull(accountIdToStatuses.selectOne(Path.key(bobId, bobStatusResultWithId.statusId)));
 
-      // wait for another microbatch iteration
-      ipc.pauseMicrobatchTopology(coreModuleName, "fanout");
-      ipc.resumeMicrobatchTopology(coreModuleName, "fanout");
-
-      // wait for another microbatch iteration
-      ipc.pauseMicrobatchTopology(coreModuleName, "fanout");
-      ipc.resumeMicrobatchTopology(coreModuleName, "fanout");
-
       // now the fanout should be complete
-      assertNull(statusIdToLocalFollowerFanouts.selectOne(Path.key(bobStatusResultWithId.statusId)));
+      attainConditionPred(() -> statusIdToLocalFollowerFanouts.selectOne(Path.key(bobStatusResultWithId.statusId)), (Object o) -> o == null);
 
       {
           List<StatusResultWithId> results = getHomeTimeline.invoke(charlieId, start, limit).results;

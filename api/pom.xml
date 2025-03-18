@@ -21,8 +21,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <custom.final.name>mastodon-api</custom.final.name>
-        <rama.version>0.9.1</rama.version>
-        <rama-helpers.version>0.9.0</rama-helpers.version>
+        <rama.version>1.0.0</rama.version>
+        <rama-helpers.version>0.10.0</rama-helpers.version>
     </properties>
 
     <repositories>

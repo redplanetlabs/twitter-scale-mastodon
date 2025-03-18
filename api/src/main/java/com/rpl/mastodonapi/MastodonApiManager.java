@@ -343,6 +343,9 @@ public class MastodonApiManager {
 
       @Override
       public void close() throws IOException { }
+
+      @Override
+      public ProxyState.Status status() { throw new RuntimeException("Not implemented"); }
     }
 
 
@@ -1643,7 +1646,7 @@ public class MastodonApiManager {
         });
     }
 
-    public CompletableFuture<Void> cancelScheduledStatus(StatusPointer statusPointer) {
+    public CompletableFuture<Map<String, Object>> cancelScheduledStatus(StatusPointer statusPointer) {
         return scheduledStatusDepot.appendAsync(new RemoveStatus(statusPointer.authorId, statusPointer.statusId, Instant.now().toEpochMilli()));
     }
 
@@ -1723,7 +1726,7 @@ public class MastodonApiManager {
                           .thenApply(filter -> filter == null? null : new FilterWithId(edit.filterId, (Filter) filter));
     }
 
-    public CompletableFuture<Void> deleteFilter(Long accountId, Long filterId) {
+    public CompletableFuture<Map<String, Object>> deleteFilter(Long accountId, Long filterId) {
         return filterDepot.appendAsync(new RemoveFilter(filterId, accountId, System.currentTimeMillis()));
     }
 
@@ -1736,7 +1739,7 @@ public class MastodonApiManager {
                           });
     }
 
-    public CompletableFuture<Void> removeStatusFromFilter(Long accountId, Long filterId, StatusPointer statusPointer) {
+    public CompletableFuture<Map<String, Object>> removeStatusFromFilter(Long accountId, Long filterId, StatusPointer statusPointer) {
         return filterDepot.appendAsync(new RemoveStatusFromFilter(filterId, accountId, statusPointer));
     }
 
