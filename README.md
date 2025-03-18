@@ -4,7 +4,7 @@
 
 This project is a production-ready implementation of a Mastodon instance that scales to Twitter-scale (500M users, 700 average fanout, unbalanced social graph, 7k posts / second). It's only 10k lines of code and can easily be adapted into any Twitter-like social network. It shares no code with the [official Mastodon implementation](https://github.com/mastodon/mastodon).
 
-The implementation is built on top of [Rama](https://redplanetlabs.com/), a new programming platform that enables end-to-end scalable backends to be built in their entirety in 100x less code than otherwise. Rama is a generic platform for building any application backend, not just social networks. This project is a demonstration of Rama's power. A build of Rama is freely available to [try now](https://redplanetlabs.com/docs/~/downloads-maven-local-dev.html), and the full cluster version of Rama is available in our [private beta](https://docs.google.com/forms/d/e/1FAIpQLSfrhmBwI0YAeaL8u4XmgfscW4UIUUDp2ZHSs4KmPH_TaDt1QQ/viewform).
+The implementation is built on top of [Rama](https://redplanetlabs.com/), a new programming platform that enables end-to-end scalable backends to be built in their entirety in 100x less code than otherwise. Rama is a generic platform for building any application backend, not just social networks. This project is a demonstration of Rama's power. Rama can be downloaded [on our website](https://redplanetlabs.com/download).
 
 We ran this code on a public instance available for anyone to use from August 15th, 2023 to August 24th, 2023. To demonstrate its scale, we ran the instance with 100M bots posting 3,500 times per second at 403 average fanout. The social graph was extremely unbalanced, with the largest user having 22M followers. During its lifetime the instance processed 2.66B posts and made 1.07T timeline deliveries.
 
@@ -63,4 +63,11 @@ Note that the instance can be run locally on macOS or Linux, but it doesn't curr
 
 ## Running on a real cluster
 
-Until Rama is publicly available, the only way to get access to the full Rama release is by [applying](https://docs.google.com/forms/d/e/1FAIpQLSfrhmBwI0YAeaL8u4XmgfscW4UIUUDp2ZHSs4KmPH_TaDt1QQ/viewform) to our private beta.
+Modules should be deployed in this order:
+
+- Relationships
+- Core
+- GlobalTimelines
+- TrendsAndHashtags
+- Notifications
+- Search
